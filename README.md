@@ -1,5 +1,7 @@
 # MiniPlayer
 
+![MiniPlayer](http://www.helium.fm/assets/img/miniplayer.png)
+
 This repo contains c# code for the Helium 13 general purpose plugin, MiniPlayer.
 The code requires Visual Studio 2015 Update 3 or later.
 
