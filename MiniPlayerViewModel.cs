@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
-using MiniPlayer.Annotations;
+using MiniPlayer.Properties;
 using NeonScripting;
 
 namespace MiniPlayer
