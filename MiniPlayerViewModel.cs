@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading;
 using MiniPlayer.Properties;
 using NeonScripting;
+using NeonScripting.Models;
 
 namespace MiniPlayer
 {

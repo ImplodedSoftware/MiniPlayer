@@ -1,6 +1,8 @@
 ﻿using System;
 using ImGeneralPluginEngine;
+using ImGeneralPluginEngine.Abstractions;
 using NeonScripting;
+using NeonScripting.Models;
 
 namespace MiniPlayer
 {
@@ -16,7 +18,7 @@ namespace MiniPlayer
             _miniPlayerWindow.Show();
         }
 
-        public void OnEvent(NeonEventTypes eventType)
+        public void OnEvent(NeonScriptEventTypes eventType)
         {
             _miniPlayerWindow.OnEvent(eventType);
         }

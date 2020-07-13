@@ -1,5 +1,6 @@
 ﻿using System;
 using ImGeneralPluginEngine;
+using ImGeneralPluginEngine.Abstractions;
 using NeonScripting;
 
 namespace MiniPlayer

@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Input;
 using NeonScripting;
+using NeonScripting.Models;
 
 namespace MiniPlayer
 {
@@ -41,14 +42,14 @@ namespace MiniPlayer
             _vm.ShowRemainingTime = !_vm.ShowRemainingTime;
         }
 
-        public void OnEvent(NeonEventTypes eventType)
+        public void OnEvent(NeonScriptEventTypes eventType)
         {
             switch (eventType)
             {
-                case NeonEventTypes.ActiveTrackChanged:
+                case NeonScriptEventTypes.ActiveTrackChanged:
                     _vm.UpdateSongInfo();
                     break;
-                case NeonEventTypes.MusicStopped:
+                case NeonScriptEventTypes.MusicStopped:
                     _vm.UpdateSongInfo();
                     break;
             }
