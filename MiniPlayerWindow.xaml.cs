@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
-using NeonScripting;
 using NeonScripting.Models;
 
 namespace MiniPlayer

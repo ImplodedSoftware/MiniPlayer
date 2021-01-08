@@ -99,8 +99,8 @@
                 </Button>
             </StackPanel>
             <StackPanel VerticalAlignment="Center">
-                <TextBlock x:Name="PlayerInfoLine1"  Style="{StaticResource TextStyle}" Text="{Binding PlayerInformationTopLine}"/>
-                <TextBlock x:Name="PlayerInfoLine2"  Style="{StaticResource TextStyle}" Opacity="0.7" Text="{Binding PlayerInformationBottomLine}"/>
+                <TextBlock x:Name="PlayerInfoLine1"  Style="{StaticResource TextStyle}" Text="{Binding PlayerInformationTopLine}" ToolTip="{Binding PlayerInformationTopLine}"/>
+                <TextBlock x:Name="PlayerInfoLine2"  Style="{StaticResource TextStyle}" Opacity="0.7" Text="{Binding PlayerInformationBottomLine}" ToolTip="{Binding PlayerInformationBottomLine}"/>
             </StackPanel>
 
         </DockPanel>

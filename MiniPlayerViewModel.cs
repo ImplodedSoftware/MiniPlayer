@@ -187,6 +187,11 @@ namespace MiniPlayer
                 {
                     sb.AppendFormat(" ({0})", track.Remix);
                 }
+
+                if (!string.IsNullOrEmpty(track.Artist))
+                {
+                    sb.AppendFormat(" by {0}", track.Artist);
+                }
                 PlayerInformationTopLine = sb.ToString();
                 sb.Clear();
                 if (string.IsNullOrEmpty(track.Album))
