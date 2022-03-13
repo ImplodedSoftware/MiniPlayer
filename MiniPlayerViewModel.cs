@@ -4,7 +4,6 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using MiniPlayer.Properties;
-using NeonScripting;
 using NeonScripting.Models;
 
 namespace MiniPlayer
@@ -171,14 +170,10 @@ namespace MiniPlayer
             var track = remoteCalls.ActiveTrack;
             if (track != null)
             {
-                if (string.IsNullOrEmpty(track.Title))
-                {
-                    sb.Append("Untitled");
-                }
-                else
-                {
-                    sb.Append(track.Title);
-                }
+                sb.Append(string.IsNullOrEmpty(track.Artist) ? "?" : track.Artist);
+                sb.Append(" - ");
+                sb.Append(string.IsNullOrEmpty(track.Title) ? "?" : track.Title);
+
                 if (!string.IsNullOrEmpty(track.Subtitle))
                 {
                     sb.AppendFormat(" [{0}]", track.Subtitle);
@@ -194,14 +189,7 @@ namespace MiniPlayer
                 }
                 PlayerInformationTopLine = sb.ToString();
                 sb.Clear();
-                if (string.IsNullOrEmpty(track.Album))
-                {
-                    sb.Append("Untitled album");
-                }
-                else
-                {
-                    sb.Append(track.Album);
-                }
+                sb.Append(string.IsNullOrEmpty(track.Album) ? "?" : track.Album);
                 if (track.ReleaseYear > 0)
                 {
                     sb.AppendFormat(" - ({0})", track.ReleaseYear);
