@@ -23,7 +23,7 @@
         <Style x:Key="TextStyle" TargetType="{x:Type TextBlock}">
             <Setter Property="Foreground" Value="#f1f1f1"/>
             <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
-            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontSize" Value="12"/>
         </Style>
         <Style x:Key="TextStyleDim" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource TextStyle}">
             <Setter Property="Foreground" Value="#99f1f1f1"/>
@@ -99,8 +99,8 @@
                 </Button>
             </StackPanel>
             <StackPanel VerticalAlignment="Center">
-                <TextBlock x:Name="PlayerInfoLine1"  Style="{StaticResource TextStyle}" Text="{Binding PlayerInformationTopLine}"/>
-                <TextBlock x:Name="PlayerInfoLine2"  Style="{StaticResource TextStyle}" Opacity="0.7" Text="{Binding PlayerInformationBottomLine}"/>
+                <TextBlock x:Name="PlayerInfoLine1" Style="{StaticResource TextStyle}" Text="{Binding PlayerInformationTopLine}"/>
+                <TextBlock x:Name="PlayerInfoLine2" Style="{StaticResource TextStyle}" Opacity="0.7" Text="{Binding PlayerInformationBottomLine}"/>
             </StackPanel>
 
         </DockPanel>
