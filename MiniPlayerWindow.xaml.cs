@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using NeonScripting.Models;
 
@@ -15,6 +16,7 @@ namespace MiniPlayer
         private const string MpWidth = "MINIPLAYER_WIDTH";
         private const string MpHeight = "MINIPLAYER_HEIGHT";
 
+        private bool _blockCalls;
         private bool _alwaysOnTop = true;
         private readonly MiniPlayerViewModel _vm = new MiniPlayerViewModel();
         public MiniPlayerWindow()
@@ -91,6 +93,50 @@ namespace MiniPlayer
             remoteCalls.SetIntValue(MpTopPos, (int)Top);
             remoteCalls.SetIntValue(MpWidth, (int)Width);
             remoteCalls.SetIntValue(MpHeight, (int)Height);
+        }
+
+        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (_blockCalls) return;
+            var remoteCalls = PluginHostHandler.Instance.ScriptHost.RemoteCalls;
+            remoteCalls.SetPlayerVolume((int)e.NewValue);
+        }
+
+        private void Rating_OnClick(object sender, RoutedEventArgs e)
+        {
+            var remoteCalls = PluginHostHandler.Instance.ScriptHost.RemoteCalls;
+            var tag = (string)(sender as MenuItem).Tag;
+            if (int.TryParse(tag, out var rating))
+            {
+                remoteCalls.RateCurrentTrack(rating);
+            }
+        }
+
+        private void ContextMenu_Opened(object sender, RoutedEventArgs e)
+        {
+            var remoteCalls = PluginHostHandler.Instance.ScriptHost.RemoteCalls;
+            _blockCalls = true;
+            VolSlider.Value = remoteCalls.PlayerVolume;
+            var track = remoteCalls.ActiveTrack;
+            var rating = remoteCalls.DownsizeRating(track.Rating);
+            var ratingString = rating.ToString();
+            foreach(var item in CtxMenu.Items)
+            {
+                var menuItem = (item as MenuItem);
+                if (menuItem != null && menuItem.IsCheckable)
+                {
+                    if (menuItem.Tag.Equals(ratingString))
+                    {
+                        menuItem.IsChecked = true;
+                    }
+                    else
+                    {
+                        menuItem.IsChecked = false;
+                    }
+                }
+            }
+
+            _blockCalls = false;
         }
     }
 }

@@ -55,9 +55,70 @@
             <DropShadowEffect ShadowDepth="1" Color="#99007ACC" Direction="0" BlurRadius="12"/>
         </Grid.Effect>
         <Grid.ContextMenu>
-            <ContextMenu>
-                <MenuItem Header="Always on top" Click="MenuItem_OnClick"/>
-                <MenuItem Header="Exit" Click="CloseMenuItem_OnClick"/>
+            <ContextMenu Opened="ContextMenu_Opened" x:Name="CtxMenu">
+                <MenuItem Click="Rating_OnClick" Tag="10" IsCheckable="True">
+                    <MenuItem.Header>
+                        <Image Source="Images/a0010.png" Height="16"/>
+                    </MenuItem.Header>
+                </MenuItem>
+                <MenuItem Click="Rating_OnClick" Tag="9" IsCheckable="True">
+                    <MenuItem.Header>
+                        <Image Source="Images/a0009.png" Height="16"/>
+                    </MenuItem.Header>
+                </MenuItem>
+                <MenuItem Click="Rating_OnClick" Tag="8" IsCheckable="True">
+                    <MenuItem.Header>
+                        <Image Source="Images/a0008.png" Height="16"/>
+                    </MenuItem.Header>
+                </MenuItem>
+                <MenuItem Click="Rating_OnClick" Tag="7" IsCheckable="True">
+                    <MenuItem.Header>
+                        <Image Source="Images/a0007.png" Height="16"/>
+                    </MenuItem.Header>
+                </MenuItem>
+                <MenuItem Click="Rating_OnClick" Tag="6" IsCheckable="True">
+                    <MenuItem.Header>
+                        <Image Source="Images/a0006.png" Height="16"/>
+                    </MenuItem.Header>
+                </MenuItem>
+                <MenuItem Click="Rating_OnClick" Tag="5" IsCheckable="True">
+                    <MenuItem.Header>
+                        <Image Source="Images/a0005.png" Height="16"/>
+                    </MenuItem.Header>
+                </MenuItem>
+                <MenuItem Click="Rating_OnClick" Tag="4" IsCheckable="True">
+                    <MenuItem.Header>
+                        <Image Source="Images/a0004.png" Height="16"/>
+                    </MenuItem.Header>
+                </MenuItem>
+                <MenuItem Click="Rating_OnClick" Tag="3" IsCheckable="True">
+                    <MenuItem.Header>
+                        <Image Source="Images/a0003.png" Height="16"/>
+                    </MenuItem.Header>
+                </MenuItem>
+                <MenuItem Click="Rating_OnClick" Tag="2" IsCheckable="True">
+                    <MenuItem.Header>
+                        <Image Source="Images/a0002.png" Height="16"/>
+                    </MenuItem.Header>
+                </MenuItem>
+                <MenuItem Click="Rating_OnClick" Tag="1" IsCheckable="True">
+                    <MenuItem.Header>
+                        <Image Source="Images/a0001.png" Height="16"/>
+                    </MenuItem.Header>
+                </MenuItem>
+                <MenuItem Header="No rating" Click="Rating_OnClick" Tag="0" IsCheckable="True"/>
+                <Separator/>
+                <MenuItem IsCheckable="False">
+                    <MenuItem.Header>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                            <TextBlock Text="Vol:" Margin="0,0,8,0" VerticalAlignment="Center"/>
+                            <Slider x:Name="VolSlider" Orientation="Horizontal" Width="100" Minimum="0" Maximum="255" ValueChanged="Slider_ValueChanged" />
+                        </StackPanel>
+                    </MenuItem.Header>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="Always on top" Click="MenuItem_OnClick" IsCheckable="False"/>
+                <MenuItem Header="Exit" Click="CloseMenuItem_OnClick" IsCheckable="False"/>
             </ContextMenu>
         </Grid.ContextMenu>
         
@@ -74,7 +135,7 @@
             <Image Source="Images/prev.png"></Image>
         </Button>
         <Button Grid.Column="2" Style="{StaticResource TransparentStyle}" Command="{Binding PlayPauseCommand}" Focusable="False">
-            <Image Source="{Binding PlayPauseImageSource}"/>
+            <Image Source="{Binding PlayPauseImageSource}" Margin="0,2"/>
         </Button>
         <Button Grid.Column="3" Style="{StaticResource TransparentStyle}" Command="{Binding StopCommand}" Focusable="False">
             <Image Source="Images/stop.png"/>
@@ -98,7 +159,7 @@
                     <Image Source="{Binding FavouriteImage}" Width="24" Margin="0,0,6,0"/>
                 </Button>
             </StackPanel>
-            <StackPanel VerticalAlignment="Center">
+            <StackPanel VerticalAlignment="Center" Margin="0,0,8,0">
                 <TextBlock x:Name="PlayerInfoLine1"  Style="{StaticResource TextStyle}" Text="{Binding PlayerInformationTopLine}" ToolTip="{Binding PlayerInformationTopLine}"/>
                 <TextBlock x:Name="PlayerInfoLine2"  Style="{StaticResource TextStyle}" Opacity="0.7" Text="{Binding PlayerInformationBottomLine}" ToolTip="{Binding PlayerInformationBottomLine}"/>
             </StackPanel>

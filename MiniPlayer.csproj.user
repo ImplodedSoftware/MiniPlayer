@@ -4,4 +4,7 @@
     <StartAction>Program</StartAction>
     <StartProgram>C:\dev\Helium\Wpf\Helium.App\bin\Debug\Helium.App.exe</StartProgram>
   </PropertyGroup>
+  <PropertyGroup>
+    <ProjectView>ProjectFiles</ProjectView>
+  </PropertyGroup>
 </Project>
