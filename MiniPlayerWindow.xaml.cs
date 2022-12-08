@@ -118,7 +118,7 @@ namespace MiniPlayer
             _blockCalls = true;
             VolSlider.Value = remoteCalls.PlayerVolume;
             var track = remoteCalls.ActiveTrack;
-            var rating = remoteCalls.DownsizeRating(track.Rating);
+            var rating = track != null ? remoteCalls.DownsizeRating(track.Rating) : 0;
             var ratingString = rating.ToString();
             foreach(var item in CtxMenu.Items)
             {
